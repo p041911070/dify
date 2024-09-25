@@ -49,18 +49,11 @@ jobs:
           echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v1
         with:
-          registry: http://docker.zonejoin.cn/repository/zonejoin-docker-repo/
+          registry: http://docker.zonejoin.cn
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ env.DOCKERHUB_TOKEN }}
-          run: |
-            echo "Logging into Nexus Repository Manager..."
-            # Use `wget` or `curl` to download a script that sets up the necessary environment variables for authentication
-            wget -q -O - "$NEXUS_REPO_URL/binaries/script" | bash
-            echo "Nexus Repository Manager login successful."
-            # Your build and publish commands go here
-
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
