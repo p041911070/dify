@@ -55,9 +55,7 @@ jobs:
         #   username: ${{ env.DOCKERHUB_USER }}
         #   password: ${{ env.DOCKERHUB_TOKEN }}
         run: |
-          echo ${{ env.DOCKERHUB_USER }} | docker login -u ${{ env.DOCKERHUB_TOKEN }} --password-stdin https://docker.zonejoin.cn
-
-
+          docker login -u  ${{ env.DOCKERHUB_USER }} -p ${{ env.DOCKERHUB_TOKEN }} http://docker.zonejoin.cn
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
