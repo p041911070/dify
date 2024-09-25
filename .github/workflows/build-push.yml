@@ -51,8 +51,10 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
+          registry: http://docker.zonejoin.cn/repository/zonejoin-docker-repo/
           username: ${{ env.DOCKERHUB_USER }}
           password: ${{ env.DOCKERHUB_TOKEN }}
+
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
