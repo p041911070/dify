@@ -47,7 +47,7 @@ EXPOSE 5001
 ENV TZ=UTC
 
 WORKDIR /app/api
-
+RUN apt-cache policy expat
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl nodejs libgmp-dev libmpfr-dev libmpc-dev \
     # if you located in China, you can use aliyun mirror to speed up
